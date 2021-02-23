@@ -3,8 +3,10 @@ from tkinter import messagebox
 import Frontend.register
 import Backend.connectiondb
 import Frontend.profile
-'''from PIL import Image, ImageTk
-import datetime'''
+from PIL import ImageTk, Image
+import datetime
+
+date = datetime.datetime.now().date()
 
 
 class My_Login:
@@ -18,6 +20,14 @@ class My_Login:
 
         lbl_head=Label(self.root, text='WareHouse Login', bd=5, bg='deep sky blue', font=('Italic',20,'bold'))
         lbl_head.pack(side=TOP,fill=X)
+
+        self.date_l = Label(self.root, text="Today's Date: " + str(date), font=('arial', 18, 'bold'),
+                            bg='light grey', fg='black')
+        self.date_l.place(x=350, y=60)
+
+        '''self.s_img = ImageTk.PhotoImage(Image.open("file.png"))
+        self.logo_img = Label(self.root, image=self.s_img, bg="black")
+        self.logo_img.pack(fill="both", expand=1)'''
 
         main_frame=Frame(self.root, bd=10, relief=SUNKEN, bg='lavender')
         main_frame.place(x=280,y=260, width=450,height=150)

@@ -3,7 +3,9 @@ from tkinter import messagebox
 import Frontend.register
 import Backend.connectiondb
 import Frontend.profile
-'''from PIL import Image, ImageTk'''
+'''from PIL import Image, ImageTk
+import datetime'''
+
 
 class My_Login:
     def __init__(self, root):
@@ -71,7 +73,7 @@ class My_Login:
                 print(data)
                 if uname==data[0] and passw==data[1]:
                     self.btn_reset_click()
-                    messagebox.showinfo("Login has been successful")
+                    # messagebox.showinfo("Login success")
                     tk=Tk()
                     Frontend.profile.Warehouse(tk)
                     self.root.destroy()
@@ -82,7 +84,7 @@ class My_Login:
                 messagebox.showinfo('please register first')
 
 
-    def lbl_signup_click(self, ev):
+    def lbl_signup_click(self, event):
         tk = Tk()
         Frontend.register.Register_Page(tk)
 

@@ -43,7 +43,7 @@ class Register_Page:
         self.cmb_gender.grid(row=3, column=1)
         btn_frame = Frame(self.root, bd=5, relief=GROOVE, bg='deep sky blue')
         btn_frame.place(x=100, y=300, width=400, height=60)
-        btn_register = Button(btn_frame, text='Register', font=('arial', 15, 'bold'), width=8, bd=5, relief=GROOVE, \
+        btn_register = Button(btn_frame, text='Register', font=('arial', 15, 'bold'), width=8, bd=5, relief=GROOVE,
                               command=self.add_click, padx=5)
         btn_register.place(x=50)
         btn_reset = Button(btn_frame, text='Reset', font=('arial', 15, 'bold'), width=8, bd=5, relief=GROOVE, padx=5)
@@ -72,7 +72,7 @@ class Register_Page:
         query = "insert into user(Username,Password,Address,Gender) values(%s,%s,%s,%s)"
         values=(U.get_username(),U.get_password(),U.get_address(),U.get_gender())
 
-        self.db.insert(query,values)
+        self.db.iud(query,values)
 
         messagebox.showinfo('Success', 'User Registration successful')
         self.root.destroy()

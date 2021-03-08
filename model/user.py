@@ -12,13 +12,13 @@ class User:
     def get_username(self):
         return self.__username
 
-    def set_password(self,passw):
+    def set_password(self, passw):
         self.__password = passw
 
     def get_password(self):
         return self.__password
 
-    def set_address(self,add):
+    def set_address(self, add):
         self.__address = add
 
     def get_address(self):
@@ -29,6 +29,9 @@ class User:
 
     def get_gender(self):
         return self.__gender
+
+
+
 
 
 

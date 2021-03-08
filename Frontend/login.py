@@ -25,9 +25,14 @@ class My_Login:
                             bg='light grey', fg='black')
         self.date_l.place(x=350, y=60)
 
-        '''self.s_img = ImageTk.PhotoImage(Image.open("file.png"))
-        self.logo_img = Label(self.root, image=self.s_img, bg="black")
-        self.logo_img.pack(fill="both", expand=1)'''
+        # self.s_img = ImageTk.PhotoImage(Image.open("file.png"))
+        # self.logo_img = Label(self.root, image=self.s_img, bg="black")
+        # self.logo_img.pack(fill="both", expand=1)
+
+        # global logo
+        # logo = PhotoImage(file=r"C:\Users\DELL\Desktop\New folder\logo.jpg")
+        # logo1 = Label(self.root, image=logo)
+        # logo1.place(x=500, y=70)
 
         main_frame=Frame(self.root, bd=10, relief=SUNKEN, bg='lavender')
         main_frame.place(x=280,y=260, width=450,height=150)
@@ -41,7 +46,7 @@ class My_Login:
         lbl_password = Label(main_frame, text='Password', bg='lavender', fg='blue', font=('arial', 18, 'bold'))
         lbl_password.grid(row=1, column=0, padx=10, pady=10)
 
-        self.ent_password = Entry(main_frame, font=('arial', 15, 'bold'))
+        self.ent_password = Entry(main_frame, font=('arial', 15, 'bold'), show="*****")
         self.ent_password.grid(row=1, column=1, padx=10, pady=10)
 
         frame_btn = Frame(self.root, bd=5, relief=GROOVE, bg='deep sky blue')
@@ -99,6 +104,6 @@ class My_Login:
         Frontend.register.Register_Page(tk)
 
 
-# window=Tk()
-# Login_Page(window)
-# window.mainloop()
+#window=Tk()
+#My_Login(window)
+#window.mainloop()

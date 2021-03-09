@@ -20,7 +20,7 @@ class Register_Page:
         lbl_heading.pack(side=TOP, fill=X)
         main_frame = Frame(self.root, bd=10, relief=SUNKEN, bg='lavender')
         main_frame.place(x=80, y=80, width=450, height=200)
-        lbl_uname = Label(main_frame, text='User Name', font=('arial', 15, 'bold'), \
+        lbl_uname = Label(main_frame, text='User Name', font=('arial', 15, 'bold'),
                           bg='lavender', fg='blue')
         lbl_uname.grid(row=0, column=0, padx=8, pady=10)
         self.ent_uname = Entry(main_frame, font=('arial', 15, 'bold'))

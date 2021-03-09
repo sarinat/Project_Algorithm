@@ -11,24 +11,29 @@ class DBconnect:
 
     def iud(self,query,values):
         self.cur.execute(query,values)
-        return self.connection.commit()
+        self.connection.commit()
 
     def select(self, query, values):
         self.cur.execute(query, values)
         rows = self.cur.fetchall()
         return rows
 
-    def data_retrive(self,query):
+    def fetch_info(self, query):
         self.cur.execute(query)
         rows = self.cur.fetchall()
         return rows
 
-    def show_data_p(self, qry, values):
+    '''def data_retrive(self,query):
+        self.cur.execute(query)
+        rows = self.cur.fetchall()
+        return rows'''
+
+    '''def show_data_p(self, qry, values):
         data = []
 
         self.cur.execute(qry, values)
         data = self.cur.fetchall()
-        return data
+        return data'''
 
 
 

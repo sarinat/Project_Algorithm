@@ -23,17 +23,6 @@ class DBconnect:
         rows = self.cur.fetchall()
         return rows
 
-    '''def data_retrive(self,query):
-        self.cur.execute(query)
-        rows = self.cur.fetchall()
-        return rows'''
-
-    '''def show_data_p(self, qry, values):
-        data = []
-
-        self.cur.execute(qry, values)
-        data = self.cur.fetchall()
-        return data'''
 
 
 

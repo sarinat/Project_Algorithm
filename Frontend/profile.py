@@ -22,6 +22,8 @@ class Warehouse:
         self.pman=StringVar()
         self.pcont=StringVar()
         self.Search=StringVar()
+        self.Sort=StringVar()
+
 
         ititle=Label(self.root,text='NEPAL WAREHOUSE INVENTORY MANAGEMENT SYSTEM',bd=5, relief=GROOVE,
                     font=('arial', 35, 'bold'), bg="deep sky blue")
@@ -96,23 +98,25 @@ class Warehouse:
 
         #=============Detail Frame====================================
 
+        self.RightFrame = Frame(self.root, bd=4, relief=RIDGE, bg='light blue')
+        self.RightFrame.place(x=520, y=100, width=800, height=560)
 
-
-        RightFrame = Frame(self.root, bd=4, relief=RIDGE, bg='light blue')
-        RightFrame.place(x=520, y=100, width=800, height=560)
-
-        lbl_search=Label(RightFrame,text="Search By", font=('arial', 20, 'bold'), bg='light blue')
+        lbl_search=Label(self.RightFrame,text="Search By", font=('arial', 20, 'bold'), bg='light blue')
         lbl_search.grid(row=0, column=0, padx=10, pady=10, sticky='w')
 
-        self.search_txt= Entry(RightFrame,font=('arial', 13, 'bold'),bd=5,width=15, relief=GROOVE,textvariable=self.Search)
+        self.search_txt= Entry(self.RightFrame,font=('arial', 13, 'bold'),bd=5,width=15, relief=GROOVE, textvariable=self.Search)
         self.search_txt.grid(row=0, column=2, padx=10, pady=10, stick='w')
 
-        search_btn = Button(RightFrame, text="Search",width=10, bd=5, command=self.searchData).grid(row=0, column=3, padx=10, pady=10)
-        #showall_btn = Button(RightFrame, text="Show All", width=10, bd=5,command=self.edit_value).grid(row=0, column=4, padx=10, pady=10)
+        search_btn = Button(self.RightFrame, text="Search",width=10, bd=5, command=self.searchData).grid(row=0, column=3, padx=10, pady=10)
+        sort_btn = Button(self.RightFrame, text="Sort", width=10, bd=5, command=self.sortData).grid(row=0, column=4, padx=10, pady=10)
 
+        self.cboSort=ttk.Combobox(self.RightFrame,state="readonly",textvariable=self.Sort)
+        self.cboSort['values']=('','Name','Manufacturer')
+        self.cboSort.current(0)
+        self.cboSort.grid(row=0, column=5, padx=10, pady=10)
     #=======================Table Frame=====================
 
-        TableFrame = Frame(RightFrame, bd=4, relief=RIDGE, bg='light blue')
+        TableFrame = Frame(self.RightFrame, bd=4, relief=RIDGE, bg='light blue')
         TableFrame.place(x=10, y=70, width=760, height=470)
 
         scroll_x=Scrollbar(TableFrame, orient=HORIZONTAL)
@@ -166,6 +170,7 @@ class Warehouse:
             values = (P.get_productid(), P.get_name(), P.get_price(), P.get_quantity(), P.get_manufacturer(), P.get_contact())
             self.db.iud(qry, values)
             self.fetch_product_data()
+            self.clear()
             messagebox.showinfo("Success", "Information added", parent=self.root)
 
     def clear(self):
@@ -227,21 +232,6 @@ class Warehouse:
             for row in rows:
                 self.Product_table.insert('', END, values=row)
 
-
-    # def search_name(self):
-    #     data = []
-    #     name = self.search_txt.get()
-    #     qry = "SELECT * FROM product_info"
-    #     values = None
-    #     data1 = self.db.show_data_p(qry, values)
-    #     print(data1)
-    #     for i in data1:
-    #         if i[1] == name:
-    #             data = i
-    #             self.Product_table.insert('', 'end', values=(data[0], data[1], data[2], data[3], data[4], data[5]))
-    #         elif not data:
-    #             print("User not found")
-
     def logout(self):
         plogout = messagebox.askyesno("Confirm if you want to exit", parent=self.root)
         if plogout > 0:
@@ -253,10 +243,29 @@ class Warehouse:
         query = "select * from product_info"
         rows = self.db.fetch_info(query)
         PSearch = self.search_txt.get()
-        s = model.searchnsort.My_searchbox().linear_search(PSearch, rows)
+        s = model.searchnsort.My_searching().linear_search(PSearch, rows)
         if s != False:
             self.Product_table.delete(*self.Product_table.get_children())
             self.Product_table.insert("", END, values=rows[s])
+
+
+    def sortData(self):
+        global index
+        select_Opt = self.cboSort.get()
+        if select_Opt == "Name":
+            index = 1
+        elif select_Opt == "Manufacturer":
+            index = 4
+        query = "select * from product_info"
+        row = self.db.fetch_info(query)
+        print(row)
+        try:
+            sorted_record = model.searchnsort.My_sorting().insertion_sort(row, index)
+            self.Product_table.delete(*self.Product_table.get_children())
+            for i in sorted_record:
+                self.Product_table.insert("", END, values=i)
+        except:
+            messagebox.showerror("error", "error", parent=self.root)
 
 
 

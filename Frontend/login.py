@@ -21,19 +21,19 @@ class My_Login:
         lbl_head=Label(self.root, text='WareHouse Login', bd=5, bg='deep sky blue', font=('Italic',20,'bold'))
         lbl_head.pack(side=TOP,fill=X)
 
-        global logo
-        logo = ImageTk.PhotoImage(Image.open("E:\picture\Warehouse1234.jpg"))
-        logo1 = Label(self.root, image=logo)
-        logo1.place(x=0, y=0)
+        global pimage
+        pimage = ImageTk.PhotoImage(Image.open("E:\picture\Warehouse1234.jpg"))
+        image1 = Label(self.root, image=pimage)
+        image1.place(x=0, y=0)
 
-        self.date_l = Label(logo1, text="Today's Date: " + str(date), font=('arial', 20, 'bold'), fg='black', bg='pink')
+        self.date_l = Label(image1, text="Today's Date: " + str(date), font=('arial', 20, 'bold'), fg='black', bg='pink')
         self.date_l.place(x=1000, y=5)
 
-        self.label1 = Label(logo1, bg="pink", text="WELCOME TO NEPAL WAREHOUSE LOGIN",
+        self.label1 = Label(image1, bg="pink", text="WELCOME TO NEPAL WAREHOUSE LOGIN",
                             font=('Times New Roman', 25, 'bold'))
         self.label1.place(x=50, y=80)
 
-        self.label1 = Label(logo1, bg="pink", text="Please proceed!",
+        self.label1 = Label(image1, bg="pink", text="Please proceed!",
                             font=('Times New Roman', 25, 'bold'))
         self.label1.place(x=240, y=140)
 
@@ -61,7 +61,7 @@ class My_Login:
         btn_reset.place(x=240, y=5)
 
         lbl_signup = Label(self.root, text='Are you a new user? Sign-up here!', fg='black',relief=GROOVE,
-                           bg='white', bd= 3,font=('arial', 20, 'bold'))
+                           bg='lavender', bd= 3,font=('arial', 20, 'bold'))
         lbl_signup.place(x=150, y=450)
         lbl_signup.bind('<Button-1>', self.lbl_signup_click)
 

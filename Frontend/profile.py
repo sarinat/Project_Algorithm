@@ -212,7 +212,7 @@ class Warehouse:
 
         P = model.product.Product_info(name, price, qnt, manufact, contact, pid)
 
-        qry = '''UPDATE product_info SET name=%s,price=%s,quantity=%s,manufacturer=%s,contact=%s WHERE productid = %s'''
+        qry = "UPDATE product_info SET name=%s,price=%s,quantity=%s,manufacturer=%s,contact=%s WHERE productid = %s"
         values = (P.get_productid(), P.get_name(), P.get_price(), P.get_quantity(), P.get_manufacturer(), P.get_contact())
         a = self.db.iud(qry, values)
         self.on_reset()

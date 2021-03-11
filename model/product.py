@@ -1,6 +1,6 @@
 
 class Product_info:
-    def __init__(self,pid, name, price, qnt, manufact, contact):
+    def __init__(self,pid=None, name=None, price=None, qnt=None, manufact=None, contact=None):
         self.__productid = pid
         self.__name = name
         self.__price = price

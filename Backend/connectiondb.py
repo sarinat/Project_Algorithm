@@ -13,12 +13,13 @@ class DBconnect:
         self.cur.execute(query,values)
         self.connection.commit()
 
-
+    #========this is the function for data selection======================
     def select(self, query, values):
         self.cur.execute(query, values)
         rows = self.cur.fetchall()
         return rows
 
+    #===========this function is for feching the data=======================
     def fetch_info(self, query,values=None):
         self.cur.execute(query,values)
         rows = self.cur.fetchall()

@@ -17,6 +17,7 @@ class Test_searcnsort(unittest.TestCase):
         bcd = self.search.linear_search('steel', abc)
         print(bcd)
         self.assertEqual(1, bcd)
+    # ==========test Passed============================
 
     def test_sorting(self):
     #Testing the sorting of database fetch value
@@ -29,6 +30,8 @@ class Test_searcnsort(unittest.TestCase):
              (2, 'steel', '1000', '122', 'abc company', '01281237'),
              (3, 'nails', '1111', '120', 'dk wares', '01238923'),
              (4, 'shovel', '1002', '122', ' st wares', '01928848')],bcd)
+
+    # ==========test Passed============================
 
     def tearDown(self):
         print('teardown method')

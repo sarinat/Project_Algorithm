@@ -1,8 +1,8 @@
 
 class My_searching:
-    def linear_search(self,si,source):
+    def linear_search(self,pi,source):
         for i in source:
-            if si in i:
+            if pi in i:
                 return int(source.index(i))
         return False
 

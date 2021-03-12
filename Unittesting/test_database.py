@@ -15,13 +15,23 @@ class Test_connection(unittest.TestCase):
         self.assertEqual(expected_result,actual_result)
     #============test Passed======================
 
+    def test_fetch_info(self):
+    # Testing the fetch value of database===================
+        query = 'select * from product_info'
+        a = self.db.fetch_info(query)
+        print(a)
+        self.assertEqual([(1, 'rod', '12000', '10000', 'ram lmt', '0134435'),
+                           (2, 'steel', '1000', '122', 'abc company', '01281237'),
+                           (3, 'nails', '1111', '120', 'dk wares', '01238923'),
+                           (4, 'shovel', '1002', '122', ' st wares', '01928848')], self.db.fetch_info(query))
+
     def test_add_info(self):
         query = "INSERT INTO product_info (productid,name,price,quantity,manufacturer,contact) VALUES (10, 'nkt', '12','10', 'ram llt', '0139935')"
         actual= self.db.iud(query)
         self.assertIsNot(False, actual)
     # ============test Passed======================
 
-    def test_update(self):
+    def test_update_data(self):
         qry = "UPDATE product_info SET name=%s WHERE productid = %s"
         values=("ok",10)
         sarina=self.db.iud(qry,values)

@@ -1,10 +1,13 @@
 
+
+#=============Classes for searching and sorting =================
 class My_searching:
     def linear_search(self,pi,source):
         for i in source:
             if pi in i:
                 return int(source.index(i))
         return False
+
 
 class My_sorting:
     def insertion_sort(self,list_a,index):

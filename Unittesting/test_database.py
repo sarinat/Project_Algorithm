@@ -25,6 +25,8 @@ class Test_connection(unittest.TestCase):
                            (3, 'nails', '1111', '120', 'dk wares', '01238923'),
                            (4, 'shovel', '1002', '122', ' st wares', '01928848')], self.db.fetch_info(query))
 
+    # ============test Passed======================
+
     def test_add_info(self):
         query = "INSERT INTO product_info (productid,name,price,quantity,manufacturer,contact) VALUES (10, 'nkt', '12','10', 'ram llt', '0139935')"
         actual= self.db.iud(query)

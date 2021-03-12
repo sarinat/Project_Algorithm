@@ -114,6 +114,7 @@ class Warehouse:
         self.cboSort['values']=('','Name','Manufacturer')
         self.cboSort.current(0)
         self.cboSort.grid(row=0, column=5, padx=10, pady=10)
+
     #=======================Table Frame=====================
 
         TableFrame = Frame(self.RightFrame, bd=4, relief=RIDGE, bg='light blue')

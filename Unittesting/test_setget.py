@@ -1,10 +1,12 @@
 import unittest
 import model.product
 
+
+# ===============testing setter and getter method of product_info table=====
+
 class Test_product(unittest.TestCase):
     def setUp(self):
         self.n = model.product.Product_info()
-    #===============testing setter and getter method of product_info table=====
 
     def test_set_productid(self):
         self.n.set_productid(2)
